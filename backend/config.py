@@ -11,7 +11,7 @@ class Config:
     PORT = 5004
     MAX_CONTENT_LENGTH = 500 * 1024 * 1024
 
-    BASIC_AUTH = 'MjAyNDA1MjQwMDU0MTNjSDZFbjVSRlpjMzU6Y2pBODhodTFUMmlScXBydGVUeEZKT3JuMm05aGhRQk80RXhkZDNWUjNMUGN6NzFCdg=='
+    BASIC_AUTH = 'MjAyNTAxMDExNjU0NTVnTk40VkpYR1BsSmI6U2V5RExMNFpCdkkxMkN0UnhXR2p2R3I4YXZXSXJjTW0zOW96T1c1emhFVThObGUwdEU5NUV0RXFO'
     REDIRECT_URL = 'https://health.ncu.edu.tw/api/auth/login'
     HOME_PAGE_URL = 'https://health.ncu.edu.tw/'
 
