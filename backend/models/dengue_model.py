@@ -42,4 +42,4 @@ class Dengue(SchemaMixin, db.Model):
     inspection_time = db.Column(db.DateTime)
 
     def __repr__(self):
-        return f'<Dengue {self.inspection_time.strftime('%Y-%m')} {self.building_id}>'
+        return f"<Dengue {self.inspection_time.strftime('%Y-%m')} {self.building_id}>"
