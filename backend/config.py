@@ -12,8 +12,8 @@ class Config:
     MAX_CONTENT_LENGTH = 500 * 1024 * 1024
 
     BASIC_AUTH = 'MjAyNTAyMDcyMzA4MzVsSFFBZzhqamlxejE6enRyaW1PdlpUZ1YxMUpETmFvaVd5R1ZvMW5COE1FUHo5aDVTeE1CN1dyM2dLOUJybXczTg=='
-    REDIRECT_URL = 'http://127.0.0.1:5004/api/auth/login'
-    HOME_PAGE_URL = 'http://127.0.0.1:3000/'
+    REDIRECT_URL = 'http://localhost:5004/api/auth/login'
+    HOME_PAGE_URL = 'http://localhost/'
 
 
 
