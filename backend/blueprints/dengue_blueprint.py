@@ -326,6 +326,10 @@ def get_dengue_report():
     for dengue in db.session.query(Dengue).all():
         dengue = dengue.to_dict()
         building_name = buildings_mapper[dengue['building_id']]
+
+        if dengue['building_id'] not in buildings_mapper:
+            continue
+        
         year_month = (dengue['inspection_time'] + timedelta(hours=8)).strftime('%Y-%m')
         if year_month not in year_months:
             continue
