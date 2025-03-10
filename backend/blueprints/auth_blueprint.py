@@ -228,7 +228,7 @@ def get_user_infos():
         users = users.filter(or_(*[User.id.like(f'%{term}%') for term in request.args['search'].split('+')]))
 
     total_page = math.ceil(len(users.all()) // 10) + 1
-    users = [user.to_dict() for user in users][(page - 1) * 10:page * 10]
+    users = sorted([user.to_dict() for user in users], key=lambda user: user['role'])[(page - 1) * 10:page * 10]
 
     return {'message': "get users success", 'data': users, "total_page": total_page}, 200
 
