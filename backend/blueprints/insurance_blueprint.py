@@ -119,7 +119,7 @@ class InsuranceContainer:
             "disablement": "失能",
             "cancer": "初次罹癌",
             "death": "身故",
-            "search": "搜尋學號",
+            "search": "搜尋學號或身分證字號",
             "report": "下載報表",
             "begin_date": "開始日期",
             "end_date": "結束日期",
@@ -193,8 +193,18 @@ def get_insurances():
     insurances = db.session.query(Insurance)
 
     if "search" in request.args:
-        insurances = insurances.filter(
-            or_(*[Insurance.student_id.like(f'%{term}%') for term in request.args['search'].split('+')]))
+        search_terms = request.args['search'].split('+')
+        filters = []
+
+        for term in search_terms:
+            if term[0].isalpha():
+                filters.append(Insurance.id_number.like(f'%{term}%'))
+            else:
+                filters.append(Insurance.student_id.like(f'%{term}%'))
+        
+        insurances = insurances.filter(or_(*filters))
+        # insurances = insurances.filter(
+        #     or_(*[Insurance.student_id.like(f'%{term}%') for term in request.args['search'].split('+')]))
 
     insurances = insurances.order_by(desc(Insurance.created_time)).all()
     total_page = math.ceil(len(insurances) / 10)

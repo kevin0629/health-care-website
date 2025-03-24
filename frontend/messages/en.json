@@ -238,7 +238,7 @@
         "disablement": "Disablement",
         "cancer": "Cancer",
         "death": "Death",
-        "search": "Search by Student ID",
+        "search": "Search by Student ID or National ID",
         "new": "Create Insurance Record",
         "begin_date": "Start Date",
         "end_date": "End Date",
