@@ -323,12 +323,17 @@ export default function InsuranceEditor({
               className="size-4 my-1"
               defaultChecked={insuranceCompanyStamp}
               onChange={() => setInsuranceCompanyStamp((prev) => {
-                if (prev) setInsuranceCompanyTime(undefined);
-                else setInsuranceCompanyTime(new Date());
+                if (!prev) setInsuranceCompanyTime(new Date());
+                else setInsuranceCompanyTime(undefined);
                 return !prev;
               })}
             />
-            <span>{insuranceCompanyTime && formatDate(insuranceCompanyTime, "yyyy-MM-dd")}</span>
+            {insuranceCompanyStamp && (
+              <DateField
+                value={insuranceCompanyTime}
+                onChange={setInsuranceCompanyTime}
+              />
+            )}
           </div>
         </div>
         <div className="flex flex-row justify-end gap-2">
